@@ -1,0 +1,27 @@
+{
+  "name": "csbox-edge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set DEBUG=provider:* && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csboxio/csbox-edge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csboxio/csbox-edge/issues"
+  },
+  "homepage": "https://github.com/csboxio/csbox-edge#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "ltijs": "^5.9.3",
+    "ltijs-sequelize": "^2.4.4"
+  }
+}
