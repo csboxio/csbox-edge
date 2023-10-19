@@ -117,6 +117,25 @@ router.get('/info', async (req, res) => {
     return res.send(info)
 })
 
+router.get('/test', async (req, res) => {
+    const axios = require('axios');
+
+    const url = 'https://your.ltiaas.com/api/idtoken';
+    const config = {
+        headers: {
+            'Authorization': `LTIK-AUTH-V2 ${API_KEY}:${ltik}`
+        }
+    };
+
+    try {
+        const response = await axios.get(url, config);
+        console.log(response.data);
+    } catch(error) {
+        console.log(error);
+    }
+})
+
+
 // Wildcard route to deal with redirecting to React routes
 router.get('*', (req, res) => res.sendFile(path.join(__dirname, '../public/index.html')))
 
