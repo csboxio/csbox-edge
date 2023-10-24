@@ -120,7 +120,7 @@ router.get('/info', async (req, res) => {
 router.get('/test', async (req, res) => {
     const axios = require('axios');
 
-    const url = 'https://your.ltiaas.com/api/idtoken';
+    const url = 'https://your.ltiaas.com/api/56399c33-cdf1-4ba0-a9a9-de0d863aa1b0';
     const config = {
         headers: {
             'Authorization': `LTIK-AUTH-V2 ${API_KEY}:${ltik}`
