@@ -1,0 +1,41 @@
+version: '3'
+services:
+  demo-client:
+    build:
+      context: ./csbox-demo-client
+      dockerfile: Dockerfile
+    volumes:
+      - ./csbox-demo-client:/usr/src/app
+    ports:
+      - "3001:3001"
+    stdin_open: true
+    networks:
+      - csbox_network
+
+  edge-server:
+    build:
+      context: ./csbox-edge-server
+      dockerfile: Dockerfile
+    volumes:
+      - ./csbox-edge-server:/usr/src/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - csbox_network
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
+    networks:
+      - csbox_network
+
+networks:
+  csbox_network:
+    driver: bridge
